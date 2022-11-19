@@ -21,11 +21,14 @@ function filterResult(universityToMatch, universitiesArr) {
 
 function displayResult() {
     // this.value - gets the input from textbox ("WORD TO BE SEARCHED")
-    result = filterResult(this.value, univseritiesArr)
+    var result = filterResult(this.value, univseritiesArr)
 
     var output = result.map(data => {
+        var highlight = new RegExp(this.value, 'gi');
+        var highlightUniversity = data.name.replace(highlight, `<span class="highlight">${this.value}</span>`)
+        var highlightCountry = data.country.replace(highlight, `<span class="highlight">${this.value}</span>`)
 
-        return `<li> ${data.name}, ${data.country} <br> <b>Website: </b>${data.web_pages}</li>`
+        return `<li> ${highlightUniversity}, ${highlightCountry} <br> <b>Website: </b>${data.web_pages}</li>`
     }).join("");
     resultList.innerHTML = output
 }
