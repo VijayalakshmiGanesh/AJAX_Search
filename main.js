@@ -1,7 +1,7 @@
 var universityName = document.querySelector(".uni-name")
 var resultList = document.querySelector(".result-list")
 
-var URL = "http://universities.hipolabs.com/search?name=india";
+var URL = "https://universities.hipolabs.com/search";
 
 let univseritiesArr = [];
 
