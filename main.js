@@ -9,6 +9,11 @@ fetch(URL)
     .then(data => data.json())
     //... is spread operator
     .then(data => univseritiesArr.push(...data))
+    .catch(errorCatch)
+
+function errorCatch(error) {
+    resultList.innerText = error;
+}
 
 
 function filterResult(universityToMatch, universitiesArr) {
